@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+
+enum Providers {
+  NONE
+  GOOGLE
+  TWITTER
+  FACEBOOK
+  INSTAGRAM
+  APPLE
+}
+
+
+enum Genders {
+  MALE
+  FEMALE
+}
+
+
+enum UserStatus {
+  PENDING_OTP
+  PENDING_COMPLETE_PROFILE
+  ACTIVE
+  INACTIVE
+}
+
+
+
+model User {
+  id                  Int          @id @default(autoincrement())
+  full_name           String?
+  email               String?      @unique
+  picture_url         String?
+  phone               String?      @unique
+  password            String?
+  gender              Genders?     @default(MALE)
+  birth_date          DateTime?    @db.Date
+  social_access_token String?      @unique
+  referral            String?      @unique
+  provider            Providers    @default(NONE)
+  status              UserStatus   @default(PENDING_OTP)
+  created_at          DateTime     @default(now())
+  updated_at          DateTime?    @updatedAt
+}
