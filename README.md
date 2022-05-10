@@ -22,9 +22,22 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+## Feature
+social login project using:-
+nestjs
+jsonwebtoken
+google passport strategy
+facebook passport strategy
+twitter passport strategy
+prisma orm
+mysql database
+nodemailer
+i18n
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+
 
 ## Installation
 
